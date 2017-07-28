@@ -7,8 +7,17 @@ QLabel, QTreeWidget, QListWidget, QGroupBox {
 	color: #ffffff;
 }
 
+QTreeWidget {
+    background-color: #373737;
+    border: 0px solid #373737;
+}
+
 QMdiArea {
-	background-image: url(resources:background_artwork.png);
+	/*background-image: url(resources:background_artwork.png);*/
+    background-color: #3a3a3a;
+    border-left: 2px solid #373737;
+    margin-top: 5px;
+    /*border-top: 2px solid #333333;*/
 }
 
 AutomationEditor {
@@ -33,7 +42,7 @@ AutomationEditor {
 
 QLineEdit {
 	border-radius: 4px;
-	border: 1px inset rgba(0,0,0,255);
+	border: 1px inset #909090;
 	background: #3a3a3a;
 	color: #e0e0e0;
 }
@@ -41,7 +50,7 @@ QLineEdit {
 /* text box when it wants text */
 
 QLineEdit:focus {
-	border: 1px solid rgba(0,0,0, 128);
+	border: 1px solid white;
 }
 
 
@@ -49,7 +58,7 @@ QToolTip {
 	border-radius: 1px;
     padding: 2px;
     background: #222222;
-	opacity: 175;
+	opacity: 255;
 	border: 1.0px solid rgba(100,100,100,255);
 	color: white;
 }
@@ -62,6 +71,17 @@ textFloat {
     color: white;
 }
 
+QMenuBar {
+    background-color: #3a3a3a;
+}
+
+QmenuBar::item:selected {
+	background: #747474;
+}
+
+QmenuBar::item:pressed {
+	background: #747474;
+}
 
 QMenu {
 	border:1px solid #666666;
@@ -388,6 +408,7 @@ QWidget#mainToolbar {
 
 QToolBar {
     background: #3a3a3a;
+    border: 2px solid #3a3a3a;
 }
 
 QToolButton, toolButton {
@@ -415,26 +436,34 @@ toolButton#stopButton {
 
 /* all tool buttons */
 
-QToolButton:hover, toolButton:hover {
+QToolButton {
+	margin: 1px;
+	padding: 2px 2px 2px 2px;
+	border: 1px solid #3a3a3a;
+	border-radius: 2px;
     background: #3a3a3a;
-	border: 1px solid rgba(255,255,255,150);
-	color: white;
+	font-size:10px;
+	color: #fff;
 }
 
-QToolButton:pressed, toolButton:pressed {
+QToolButton:hover {
+	border: 1px solid #a0a0a0;
+	border-radius: 2px;
     background: #3a3a3a;
-	padding: 2px 1px 0px 1px;
-	border: 1px solid rgba(0,0,0,128);
-	color: white;
 }
 
-QToolButton:checked, toolButton:checked  {
+QToolButton:pressed {
+	border: 1px solid white;
+	border-radius: 2px;
     background: #3a3a3a;
-	border-radius: 3px;
-	padding: 2px 1px 0px 1px;
-	border: 1px solid rgba(200,200,200,255);
-	color: white;
 }
+
+QToolButton:checked {
+	border: 1px solid white;
+    background: #3a3a3a;
+}
+
+
 
 /* track label buttons - the part that contains the icon and track title */
 
@@ -483,7 +512,11 @@ TrackLabelButton:checked:pressed {
 /* sidebar, sidebar buttons */
 
 SideBar {
+	subcontrol-position: center;
     background-color: #3a3a3a;
+    border-right: 2px solid #373737;
+    margin-top: 5px;
+    /*border-top: 2px solid #333333;*/
 }
 
 SideBar QToolButton {
@@ -523,12 +556,54 @@ Fader {
     border: 1px solid red;
 }
 
+/*
 timeLine {
 	font-size: 8px;
 }
+*/
+
+
+
+TimeLineWidget {
+    background: #333333;
+	/* font-size only supports px and pt. */
+	font-size: 7pt;
+	/* lengths also support em. This will make sure that the height
+	   will always change in the same proportion as the font size
+	   defined above.
+	   If you want a fixed size set min and max to the same value. */
+	min-height: 1.5em;
+	max-height: 1.5em;
+
+	/* Properties for the loop indicator rectangle in inactive state:
+	    - LoopColor: Color of the outermost border
+	    - LoopBrush: Brush to paint the main portion of the rectangle
+	    - LoopInnerColor: Color used to paint the inlayed border */
+	qproperty-inactiveLoopColor: #505050;
+	qproperty-inactiveLoopBrush: #505050;
+	qproperty-inactiveLoopInnerColor: #505050;
+
+	/* Properties for the loop indicator rectangle in active state.
+	   See above for detailed description. */
+	qproperty-activeLoopColor: #74aa74;
+	qproperty-activeLoopBrush: #74aa74;
+	qproperty-activeLoopInnerColor: #74aa74;
+
+	/* Vertical padding for the loop indicator rectangle.
+	   A value of zero draws the rectangle at the full height of the widget. */
+	qproperty-loopRectangleVerticalPadding: 1;
+
+	qproperty-barLineColor: rgb( 192, 192, 192 );
+	qproperty-barNumberColor: rgb( 192, 192, 192 );
+}
+
 
 QTreeView {
 	alternate-background-color: #3a3a3a;
+}
+
+QTreeView::item:selected {
+    background-color: #747474;
 }
 
 TrackContainerView QLabel {
@@ -579,15 +654,15 @@ bbTCOView {
 
 /* Subwindows in MDI-Area */
 SubWindow {
-    color: #505050;
-    qproperty-activeColor: #252525;
-	qproperty-textShadowColor: #000;
+    color: #707070;
+    qproperty-activeColor: #909090;
+	qproperty-textShadowColor: #888888;
 	qproperty-borderColor: #252525;
 }
 
 /* Subwindow title text */
 SubWindow > QLabel {
-	color: white;
+	color: #444444;
 	font-size: 12px;
 	font-style: normal;
 }
@@ -595,9 +670,10 @@ SubWindow > QLabel {
 /* SubWindow titlebar button */
 SubWindow > QPushButton {
 	background-color: rgba( 255, 255, 255, 0% );
-	border-width: 0px;
+	border-width: 1px;
 	border-color: none;
-	border-style: none;
+	border-style: solid;
+	border-radius: 2px;
 }
 
 SubWindow > QPushButton:hover{
@@ -809,15 +885,15 @@ NesInstrumentView knob {
 /* palette information  */
 
 LmmsPalette {
-	qproperty-background: #3a3a3a;
+	qproperty-background: #373737;
 	qproperty-windowText: #c4c4c4;
-	qproperty-base: #3a3a3a;
+	qproperty-base: #373737;
 	qproperty-text: #c4c4c4;
 	qproperty-button: #3a3a3a;
 	qproperty-shadow: #3a3a3a;
 	qproperty-buttonText: #ffffff;
 	qproperty-brightText: #4afd85;
-	qproperty-highlight: #3a3a3a;
+	qproperty-highlight: #373737;
 	qproperty-highlightedText: #ffffff;
 	/* the next two are used for whatsthis dialogs */
 	qproperty-toolTipText: #ffffff;
