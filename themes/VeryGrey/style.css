@@ -15,9 +15,9 @@ QTreeWidget {
 QMdiArea {
 	/*background-image: url(resources:background_artwork.png);*/
     background-color: #3a3a3a;
-    border-left: 2px solid #373737;
-    margin-top: 5px;
-    /*border-top: 2px solid #333333;*/
+    /*border-left: 2px solid #373737;*/
+    /*margin-top: 5px;*/
+    /*border-top: 2px solid #373737;*/
 }
 
 AutomationEditor {
@@ -514,8 +514,8 @@ TrackLabelButton:checked:pressed {
 SideBar {
 	subcontrol-position: center;
     background-color: #3a3a3a;
-    border-right: 2px solid #373737;
-    margin-top: 5px;
+    /*border-right: 2px solid #373737;*/
+    /*margin-top: 5px;*/
     /*border-top: 2px solid #333333;*/
 }
 
@@ -656,7 +656,7 @@ bbTCOView {
 SubWindow {
     color: #707070;
     qproperty-activeColor: #909090;
-	qproperty-textShadowColor: #888888;
+	/*qproperty-textShadowColor: #888888;*/
 	qproperty-borderColor: #252525;
 }
 
